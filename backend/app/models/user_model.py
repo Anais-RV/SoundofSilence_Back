@@ -9,6 +9,7 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, index=True)
     last_name = Column(String, index=True)
+    user_name = Column(String, unique=True)
     email = Column(String, unique=True, index=True, nullable=False)
     hashed_password = Column(String, nullable=False)
     timestamp = Column(DateTime(timezone=True), default=func.now())
@@ -18,7 +19,7 @@ class User(Base):
 
     def check_password(self, password):
         return check_password_hash(self.hashed_password, password)
-
+    
 predictions = relationship("Prediction", back_populates="user")
 
 
