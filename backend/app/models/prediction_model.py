@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Float, func
 from sqlalchemy.orm import relationship
-from database import Base
+from ..database import Base
 
 class Prediction(Base):
     __tablename__ = "predictions"
@@ -15,3 +15,4 @@ class Prediction(Base):
 
     user = relationship("User", back_populates="predictions")
     audio = relationship("Audio", back_populates="predictions")
+    feedback = relationship("Feedback", back_populates="prediction", uselist=False)

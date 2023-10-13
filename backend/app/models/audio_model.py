@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, LargeBinary, DateTime, func
-from database import Base
+from ..database import Base
 from sqlalchemy.orm import relationship
 
 class Audio(Base):
