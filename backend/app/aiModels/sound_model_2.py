@@ -31,7 +31,7 @@ def classify_sound(audio_file_path, top_n=8):
 
     return top_labels, top_scores
 
-audio_file_path = "D:\\BOOTCAMPF5\\SoundOfSilence\\audio13.wav"
+audio_file_path = "D:\\BOOTCAMPF5\\SoundOfSilence\\pajaros.wav"
 
 labels, scores = classify_sound(audio_file_path)
 for label, score in zip(labels, scores):
