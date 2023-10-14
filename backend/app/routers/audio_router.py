@@ -6,8 +6,10 @@ from fastapi import UploadFile, File, Form
 from datetime import datetime
 from typing import Optional
 from ..models import audio_model
-import base64, io, shutil
+import base64, io, shutil, os
 from fastapi.responses import StreamingResponse
+from ..aiModels.sound_model import classify_sound
+from  ..models import prediction_model  
 
 
 router = APIRouter()
@@ -19,6 +21,8 @@ def get_db():
     finally:
         db.close()
 
+
+USER_ID_STATIC = 1  # ID del usuario tester
 
 @router.post("/audios", response_model=Audio)
 def create_audio(blob_data: UploadFile = File(...), path: Optional[str] = Form(None), db: Session = Depends(get_db)):
@@ -35,11 +39,30 @@ def create_audio(blob_data: UploadFile = File(...), path: Optional[str] = Form(N
     # Convierte el contenido codificado en bytes antes de insertarlo
     db_audio = audio_model.Audio(blob_data=encoded_content.encode("utf-8"), path=path, timestamp=datetime.now())
     
+    # Agrega el audio y confirma para obtener el ID del audio
     db.add(db_audio)
     db.commit()
     db.refresh(db_audio)
     
+    # Procesar audio con YAMNet
+    try:
+        labels, scores = classify_sound(blob_data.filename)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Error processing audio: {e}")
+    
+    # Agrega las predicciones con el audio_id
+    for label, score in zip(labels, scores):
+        prediction = prediction_model.Prediction(label=label, confidence=score, audio_id=db_audio.id, user_id=1)
+        db.add(prediction)
+    db.commit()  # Commit the predictions
+
+    # Limpia el archivo temporal
+    os.remove(blob_data.filename)
+
     return db_audio
+
+
+
 
 
 @router.get("/audios/{audio_id}")
