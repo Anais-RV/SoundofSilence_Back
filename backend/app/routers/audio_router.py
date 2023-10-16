@@ -1,15 +1,19 @@
 from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy.orm import Session
+from sqlalchemy import desc
 from .. import database, models, schemas
 from backend.app.schemas.audio_schema import Audio, AudioCreate
+from backend.app.schemas.prediction_schema import Prediction
 from fastapi import UploadFile, File, Form
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List
 from ..models import audio_model
 import base64, io, shutil, os
 from fastapi.responses import StreamingResponse
 from ..aiModels.sound_model import classify_sound
 from  ..models import prediction_model  
+
+
 
 
 router = APIRouter()
@@ -24,6 +28,8 @@ def get_db():
 
 USER_ID_STATIC = 1  # ID del usuario tester
 
+
+# GENERAR LAS PREDICCIONES DE UN AUDIO + GENERAR REGISTROS EN AUDIO & PREDICCIONES
 @router.post("/audios", response_model=Audio)
 def create_audio(blob_data: UploadFile = File(...), path: Optional[str] = Form(None), db: Session = Depends(get_db)):
     
@@ -62,9 +68,7 @@ def create_audio(blob_data: UploadFile = File(...), path: Optional[str] = Form(N
     return db_audio
 
 
-
-
-
+# RECUPERAR UN AUDIO EN STREAMING
 @router.get("/audios/{audio_id}")
 async def get_audio(audio_id: int, db: Session = Depends(get_db)):
     db_audio = db.query(audio_model.Audio).filter(audio_model.Audio.id == audio_id).first()
@@ -81,16 +85,58 @@ async def get_audio(audio_id: int, db: Session = Depends(get_db)):
     return StreamingResponse(audio_stream, media_type="audio/wav")
 
 
+# OBTENER TODAS LAS PREDICCIONES DE UN MODELO
+@router.get("/audios/{audio_id}/predictions", response_model=List[Prediction])
+def get_predictions_for_audio(audio_id: int, db:Session = Depends(get_db)):
+    print(f"Fetching predictions for audio ID: {audio_id}")  # Esto imprimirá el ID del audio que estamos buscando
+    predictions = db.query(prediction_model.Prediction).filter(prediction_model.Prediction.audio_id == audio_id).all()
+
+    print(f"Found {len(predictions)} predictions")  # Esto imprimirá la cantidad de predicciones encontradas
+
+    if not predictions:
+        raise HTTPException(status_code=404, detail="Predictions not found for this audio")
+    
+    return predictions
+
+
+# HISTORIAL
+@router.get("/user/{user_id}/last_audios", response_model=List[Prediction])
+def get_last_audios_for_users(user_id: int, db: Session = Depends(get_db)):
+    subquery = (
+        db.query(prediction_model.Prediction.audio_id)
+        .filter(prediction_model.Prediction.user_id == user_id)
+        .distinct()
+        .order_by(desc(prediction_model.Prediction.timestamp))
+        .limit(5)
+        .subquery()
+    )
+
+    last_audios = (
+        db.query(prediction_model.Prediction)
+        .filter(prediction_model.Prediction.audio_id.in_(subquery))
+        .order_by(desc(prediction_model.Prediction.timestamp))
+        .all()
+    )
+
+    if not last_audios:
+        raise HTTPException(status_code=404, detail="No audios found for this user")
+
+    return last_audios
+
+# ELIMINAR UN AUDIO
 @router.delete("/audios/{audio_id}", response_model=Audio)
 
 def delete_audio(audio_id: int, db: Session = Depends(get_db)):
 
     db_audio = db.query(audio_model.Audio).filter(audio_model.Audio.id == audio_id).first()
-
-
     if not db_audio:
         raise HTTPException(status_code=404, detail="Audio not found")
     
+    #antes de eliminar el audio, eliminamos predicciones asociadas (privacidad usuario)
+
+    db.query(prediction_model.Prediction).filter(prediction_model.Prediction.audio_id == audio_id).delete()
+    
     db.delete(db_audio)
     db.commit()
+
     return db_audio

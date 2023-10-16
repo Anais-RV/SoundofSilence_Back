@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 
 class PredictionBase(BaseModel):
+    id: int
     label: str
     confidence: float
     audio_id: int
@@ -9,8 +10,7 @@ class PredictionBase(BaseModel):
 class PredictionCreate(PredictionBase):
     pass 
 
-class Prediction(BaseModel):
-    id: int
+class Prediction(PredictionBase):
 
     class Config:
-        orm_mode = True
+        from_attributes = True

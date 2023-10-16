@@ -15,5 +15,5 @@ class Audio(AudioBase): #extensión del objeto, lo utilizaremos para devolver de
     id: int
 
     class Config: #clase interna de pydantic - facilita la conversión de un objeto ORM a une esquema
-        orm_mode = True
+        from_attributes = True
 
