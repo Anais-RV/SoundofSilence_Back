@@ -28,17 +28,39 @@ def get_db():
 
 USER_ID_STATIC = 1  # ID del usuario tester
 
+import subprocess
+
+def process_audio(input_path: str, output_path: str):
+    # Convierte el audio a 16kHz, mono, formato WAV
+    command = [
+        "ffmpeg", 
+        "-i", input_path,
+        "-ar", "16000",      # Frecuencia de muestreo a 16kHz
+        "-ac", "1",          # Mono
+        "-acodec", "pcm_s16le",  # Codificación de audio
+        "-f", "wav",         # Formato de salida WAV
+        output_path
+    ]
+    subprocess.run(command, check=True)
+
+
 
 # GENERAR LAS PREDICCIONES DE UN AUDIO + GENERAR REGISTROS EN AUDIO & PREDICCIONES
 @router.post("/audios", response_model=Audio)
 def create_audio(blob_data: UploadFile = File(...), path: Optional[str] = Form(None), db: Session = Depends(get_db)):
     
+    # Nombre temporal para el archivo procesado
+    processed_filename = "processed_" + blob_data.filename
+    
     # Guarda el archivo en el servidor 
     with open(blob_data.filename, "wb") as buffer:
         shutil.copyfileobj(blob_data.file, buffer)
     
-    # Abre el archivo y lee el contenido para codificarlo
-    with open(blob_data.filename, "rb") as buffer:
+    # Procesa el audio
+    process_audio(blob_data.filename, processed_filename)
+    
+    # Abre el archivo procesado y lee el contenido para codificarlo
+    with open(processed_filename, "rb") as buffer:
         file_content = buffer.read()
         encoded_content = base64.b64encode(file_content).decode("utf-8")
     
@@ -52,7 +74,7 @@ def create_audio(blob_data: UploadFile = File(...), path: Optional[str] = Form(N
     
     # Procesar audio con YAMNet
     try:
-        labels, scores = classify_sound(blob_data.filename)
+        labels, scores = classify_sound(processed_filename)
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Error processing audio: {e}")
     
@@ -62,10 +84,12 @@ def create_audio(blob_data: UploadFile = File(...), path: Optional[str] = Form(N
         db.add(prediction)
     db.commit()  # Commit the predictions
 
-    # Limpia el archivo temporal
+    # Limpia los archivos temporales
     os.remove(blob_data.filename)
+    os.remove(processed_filename)
 
     return db_audio
+
 
 
 # RECUPERAR UN AUDIO EN STREAMING
