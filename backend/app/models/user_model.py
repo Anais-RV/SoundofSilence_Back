@@ -14,6 +14,7 @@ class User(Base):
     last_name = Column(String, index=True)
     user_name = Column(String, unique=True)
     email = Column(String, unique=True, index=True, nullable=False)
+    profile_image = Column(String, nullable=True)
     
     @validates('email')
     def validate_email(self, key, email):
