@@ -1,8 +1,14 @@
 from pydantic import BaseModel, EmailStr
 from typing import Optional
 
+class UserCreate(BaseModel): #lo que quiero recibir al crear un user
+    name: str
+    last_name: str
+    user_name: str
+    email: EmailStr
+    password: str
 
-class User(BaseModel):
+class User(BaseModel): # lo que podría devolver de un user registrado
     id: int
     name: str
     last_name: str
@@ -10,12 +16,13 @@ class User(BaseModel):
     profile_image: Optional[str]
     email: EmailStr
 
-class UserCreate(User):
-    name: str
-    last_name: str
+class UserLogin(BaseModel):
     user_name: str
-    email: EmailStr
     password: str
+
+class UserResponse(BaseModel):
+    token: str
+    user: User
 
     class Config:
         orm_mode = True

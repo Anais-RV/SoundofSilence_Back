@@ -1,80 +1,59 @@
 from fastapi import APIRouter, HTTPException, Depends, UploadFile, File
 from sqlalchemy.orm import Session
-from backend.app import database, models
-from backend.app.schemas.user_schema import User, UserCreate
 from ..database import get_db
-import shutil
+from ..models.user_model import User as UserModel
+from ..schemas.user_schema import User, UserCreate, UserLogin, UserResponse
+from werkzeug.security import check_password_hash
+from fastapi import Form
+from datetime import datetime, timedelta
+import shutil, json, jwt
 
 router = APIRouter()
 
 @router.post("/register", response_model=User)
-# def register_user(user: UserCreate, db: Session = Depends(get_db), profile_image: UploadFile = File(...)):
 def register_user(
-    user: UserCreate = Depends(),  # Esto cambió
+    user: str = Form(...),
     profile_image: UploadFile = File(...),
     db: Session = Depends(get_db)
 ):
+    user_data = json.loads(user)  # Cambiar a json.loads
 
-    db_user = db.query(models.User).filter(
-        (models.User.email == user.email) | (models.User.user_name == user.user_name)).first()
+    db_user = db.query(UserModel).filter(
+        (UserModel.email == user_data['email']) | (UserModel.user_name == user_data['user_name'])).first()
 
     if db_user:
         raise HTTPException(status_code=400, detail="Username or Email already registered")
     
+    # Guardar la imagen
     image_path = "images/" + profile_image.filename
     with open(image_path, "wb") as buffer:
         shutil.copyfileobj(profile_image.file, buffer)
 
-    new_user = models.User(
-        name=user.name,
-        last_name=user.last_name,
-        user_name=user.user_name,
-        email=user.email,
-        profile_image=image_path  # ruta de la imagen
+    # nuevo usuario
+    new_user = UserModel(
+        name=user_data['name'],
+        last_name=user_data['last_name'],
+        user_name=user_data['user_name'],
+        email=user_data['email'],
+        profile_image=image_path
     )
-
-    new_user.set_password(user.password)
-
+    new_user.set_password(user_data['password'])
+    
+    # Añadir el usuario a la bbdd
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
 
     return new_user
 
-# import shutil
+@router.post("/login", response_model=UserResponse)
+def login(user: UserLogin, db: Session = Depends(get_db)):
+    db_user = db.query(UserModel).filter(UserModel.user_name == user.user_name).first()
 
-# router = APIRouter()
-
-# @router.post("/register", response_model=User)
-# def register_user(user: UserCreate, profile_image: UploadFile = File(...), db: Session = Depends(get_db)):
-#     try:
-#         # Validar si el usuario ya existe
-#         db_user = db.query(models.User).filter(
-#             (models.User.email == user.email) | (models.User.user_name == user.user_name)).first()
-
-#         if db_user:
-#             raise HTTPException(status_code=400, detail="Username or Email already registered")
-
-#         # Ruta de la imagen
-#         image_path = "images/" + profile_image.filename
-#         with open(image_path, "wb") as buffer:
-#             shutil.copyfileobj(profile_image.file, buffer)
-
-#         # Crear el nuevo usuario en la base de datos
-#         new_user = models.User(
-#             name=user.name,
-#             last_name=user.last_name,
-#             user_name=user.user_name,
-#             email=user.email,
-#             profile_image=image_path
-#         )
-
-#         db.add(new_user)
-#         db.commit()
-#         db.refresh(new_user)
-
-#         return new_user
-
-#     except Exception as e:
-#         # Maneja cualquier excepción aquí
-#         raise HTTPException(status_code=500, detail="Error during user registration")
+    if not db_user:
+        raise HTTPException(status_code=400, detail="Invalid credentials")
+    
+    if not check_password_hash(db_user.hashed_password, user.password):
+        raise HTTPException(status_code=400, detail="Invalid password")
+    
+    return{"token": token, "user": db_user}
