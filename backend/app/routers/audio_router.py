@@ -109,7 +109,7 @@ async def get_audio(audio_id: int, db: Session = Depends(get_db)):
     return StreamingResponse(audio_stream, media_type="audio/wav")
 
 
-# OBTENER TODAS LAS PREDICCIONES DE UN MODELO
+# OBTENER TODAS LAS PREDICCIONES DE UN AUDIO
 @router.get("/audios/{audio_id}/predictions", response_model=List[Prediction])
 def get_predictions_for_audio(audio_id: int, db:Session = Depends(get_db)):
     print(f"Fetching predictions for audio ID: {audio_id}")  # Esto imprimirá el ID del audio que estamos buscando

@@ -7,6 +7,7 @@ class UserCreate(BaseModel): #lo que quiero recibir al crear un user
     user_name: str
     email: EmailStr
     password: str
+    profile_image: Optional[bytes]
 
 class User(BaseModel): # lo que podría devolver de un user registrado
     id: int
