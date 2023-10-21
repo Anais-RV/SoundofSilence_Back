@@ -12,6 +12,8 @@ import base64, io, shutil, os
 from fastapi.responses import StreamingResponse
 from ..aiModels.sound_model import classify_sound
 from  ..models import prediction_model  
+from ..models.user_model import User as UserModel
+from .user_router import get_current_user_id
 
 
 
@@ -26,7 +28,7 @@ def get_db():
         db.close()
 
 
-USER_ID_STATIC = 1  # ID del usuario tester
+# USER_ID_STATIC = 1  # ID del usuario tester
 
 import subprocess
 
@@ -47,7 +49,8 @@ def process_audio(input_path: str, output_path: str):
 
 # GENERAR LAS PREDICCIONES DE UN AUDIO + GENERAR REGISTROS EN AUDIO & PREDICCIONES
 @router.post("/audios", response_model=Audio)
-def create_audio(blob_data: UploadFile = File(...), path: Optional[str] = Form(None), db: Session = Depends(get_db)):
+# def create_audio(blob_data: UploadFile = File(...), path: Optional[str] = Form(None), db: Session = Depends(get_db)):
+def create_audio(user_id: int = Depends(get_current_user_id), blob_data: UploadFile = File(...), path: Optional[str] = Form(None), db: Session = Depends(get_db)):    
     
     # Nombre temporal para el archivo procesado
     processed_filename = "processed_" + blob_data.filename
@@ -80,7 +83,7 @@ def create_audio(blob_data: UploadFile = File(...), path: Optional[str] = Form(N
     
     # Agrega las predicciones con el audio_id
     for label, score in zip(labels, scores):
-        prediction = prediction_model.Prediction(label=label, confidence=score, audio_id=db_audio.id, user_id=1)
+        prediction = prediction_model.Prediction(label=label, confidence=score, audio_id=db_audio.id, user_id=user_id)
         db.add(prediction)
     db.commit()  # Commit the predictions
 
@@ -164,3 +167,4 @@ def delete_audio(audio_id: int, db: Session = Depends(get_db)):
     db.commit()
 
     return db_audio
+
