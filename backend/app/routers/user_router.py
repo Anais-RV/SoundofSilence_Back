@@ -56,19 +56,6 @@ def register_user(
 
     return new_user
 
-# @router.post("/login", response_model=UserResponse)
-# def login(user: UserLogin, db: Session = Depends(get_db)):
-#     db_user = db.query(UserModel).filter(UserModel.user_name == user.user_name).first()
-
-#     if not db_user:
-#         raise HTTPException(status_code=400, detail="Invalid credentials")
-    
-#     if not check_password_hash(db_user.hashed_password, user.password):
-#         raise HTTPException(status_code=400, detail="Invalid password")
-    
-#     access_token = create_access_token(data={"sub": user.user_name})
-#     return {"token": access_token, "user": {"user_name": db_user.user_name}}
-
 @router.post("/login", response_model=UserResponse)
 def login(user: UserLogin, db: Session = Depends(get_db)):
     db_user = db.query(UserModel).filter(UserModel.user_name == user.user_name).first()

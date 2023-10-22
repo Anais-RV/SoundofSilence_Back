@@ -49,7 +49,7 @@ def process_audio(input_path: str, output_path: str):
 
 # GENERAR LAS PREDICCIONES DE UN AUDIO + GENERAR REGISTROS EN AUDIO & PREDICCIONES
 @router.post("/audios", response_model=Audio)
-# def create_audio(blob_data: UploadFile = File(...), path: Optional[str] = Form(None), db: Session = Depends(get_db)):
+
 def create_audio(user_id: int = Depends(get_current_user_id), blob_data: UploadFile = File(...), path: Optional[str] = Form(None), db: Session = Depends(get_db)):    
     
     # Nombre temporal para el archivo procesado
