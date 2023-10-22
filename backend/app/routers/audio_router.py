@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy.orm import Session
-from sqlalchemy import desc
+from sqlalchemy import desc, asc
 from .. import database, models, schemas
 from backend.app.schemas.audio_schema import Audio, AudioCreate
 from backend.app.schemas.prediction_schema import Prediction
@@ -141,7 +141,7 @@ def get_last_audios_for_users(user_id: int, db: Session = Depends(get_db)):
     last_audios = (
         db.query(prediction_model.Prediction)
         .filter(prediction_model.Prediction.audio_id.in_(subquery))
-        .order_by(desc(prediction_model.Prediction.timestamp))
+        .order_by(asc(prediction_model.Prediction.timestamp))
         .all()
     )
 
