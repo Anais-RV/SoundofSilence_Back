@@ -126,7 +126,8 @@ def get_predictions_for_audio(audio_id: int, db:Session = Depends(get_db)):
     return predictions
 
 
-# HISTORIAL
+#HISTORIAL
+
 @router.get("/user/{user_id}/last_audios", response_model=List[Prediction])
 def get_last_audios_for_users(user_id: int, db: Session = Depends(get_db)):
     subquery = (
@@ -141,7 +142,7 @@ def get_last_audios_for_users(user_id: int, db: Session = Depends(get_db)):
     last_audios = (
         db.query(prediction_model.Prediction)
         .filter(prediction_model.Prediction.audio_id.in_(subquery))
-        .order_by(asc(prediction_model.Prediction.timestamp))
+        .order_by(desc(prediction_model.Prediction.timestamp))
         .all()
     )
 
