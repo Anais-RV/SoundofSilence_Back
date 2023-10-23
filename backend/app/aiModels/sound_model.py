@@ -36,10 +36,3 @@ def classify_sound(audio_file_path, top_n=4):
     top_scores = [scores.numpy().mean(axis=0)[i] for i in top_indices]
 
     return top_labels, top_scores
-
-#audio_file_path = "D:\\BOOTCAMPF5\\SoundOfSilence\\audio8.wav"
-
-#labels, scores = classify_sound(audio_file_path)
-#for label, score in zip(labels, scores):
-    #print(f"The label is: {label} with a score of: {score:.2f}")
-

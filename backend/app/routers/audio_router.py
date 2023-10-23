@@ -1,20 +1,25 @@
-from fastapi import APIRouter, HTTPException, Depends
+# Bibliotecas estándar
+from datetime import datetime
+import base64
+import io
+import os
+import shutil
+
+# Bibliotecas de terceros
+from fastapi import APIRouter, HTTPException, Depends, UploadFile, File, Form
+from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
 from sqlalchemy import desc, asc
-from .. import database, models, schemas
-from backend.app.schemas.audio_schema import Audio, AudioCreate
-from backend.app.schemas.prediction_schema import Prediction
-from fastapi import UploadFile, File, Form
-from datetime import datetime
 from typing import Optional, List
-from ..models import audio_model
-import base64, io, shutil, os
-from fastapi.responses import StreamingResponse
+
+# Importaciones específicas del módulo
+from .. import database, models, schemas
 from ..aiModels.sound_model import classify_sound
-from  ..models import prediction_model  
+from ..models import audio_model, prediction_model
 from ..models.user_model import User as UserModel
 from .user_router import get_current_user_id
-
+from backend.app.schemas.audio_schema import Audio, AudioCreate
+from backend.app.schemas.prediction_schema import Prediction
 
 
 
@@ -27,8 +32,6 @@ def get_db():
     finally:
         db.close()
 
-
-# USER_ID_STATIC = 1  # ID del usuario tester
 
 import subprocess
 

@@ -12,13 +12,15 @@ from jwt.exceptions import InvalidTokenError as JWTError
 from fastapi.security import OAuth2PasswordBearer
 
 
-# Importaciones específicas del módulo o aplicativo
+# Importaciones específicas del módulo
 from ..database import get_db
 from ..models.user_model import User as UserModel
 from ..schemas.user_schema import User, UserCreate, UserLogin, UserResponse
 
 
 router = APIRouter()
+
+#Registrar usuario
 
 @router.post("/register", response_model=User)
 def register_user(
@@ -56,6 +58,8 @@ def register_user(
 
     return new_user
 
+#Login
+
 @router.post("/login", response_model=UserResponse)
 def login(user: UserLogin, db: Session = Depends(get_db)):
     db_user = db.query(UserModel).filter(UserModel.user_name == user.user_name).first()
@@ -77,15 +81,16 @@ def login(user: UserLogin, db: Session = Depends(get_db)):
             "name": db_user.name,
             "last_name": db_user.last_name,
             "profile_image": db_user.profile_image,
-            "email": db_user.email  # Y cualquier otro campo que sea necesario
+            "email": db_user.email  
         }
     }
 
 
+SECRET_KEY = "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7" #clave JWT
+ALGORITHM = "HS256" #algoritmo
+ACCESS_TOKEN_EXPIRE_MINUTES = 60 #caducidad del token
 
-SECRET_KEY = "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7"
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 60
+#función token acceso
 
 def create_access_token(data: dict, expires_delta: timedelta = None):
     to_encode = data.copy()
@@ -96,6 +101,8 @@ def create_access_token(data: dict, expires_delta: timedelta = None):
     to_encode.update({"exp": expire})
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
+
+#función verificar token
 
 def verify_token(token: str, db: Session = Depends(get_db)):
     try:
@@ -109,7 +116,9 @@ def verify_token(token: str, db: Session = Depends(get_db)):
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
-def get_current_user_id(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+#función obtener id del user logueado
+
+def get_current_user_id(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)): #verificamos token
     user_name = verify_token(token)
     db_user = db.query(UserModel).filter(UserModel.user_name == user_name).first()
     if db_user:
