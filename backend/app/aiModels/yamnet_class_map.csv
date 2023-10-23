@@ -1,0 +1,522 @@
+index,mid,display_name
+0,/m/09x0r,Discurso
+1,/m/0ytgt,"Discurso infantil, niño hablando"
+2,/m/01h8n0,Conversación
+3,/m/02qldy,"Narración, monólogo"
+4,/m/0261r1,Balbuceo
+5,/m/0brhx,Sintetizador de voz
+6,/m/07p6fty,Gritar
+7,/m/07q4ntr,Bramido
+8,/m/07rwj3x,Alarido
+9,/m/07sr1lc,Gritar
+10,/t/dd00135,Niños gritando
+11,/m/03qc9zr,Gritando
+12,/m/02rtxlg,Susurro
+13,/m/01j3sz,Risa
+14,/t/dd00001,Risa de bebé
+15,/m/07r660_,Risilla
+16,/m/07s04w4,Risa disimulada
+17,/m/07sq110,Risa de vientre
+18,/m/07rgt08,"Risita, chortle"
+19,/m/0463cq4,"Llorando, sollozando"
+20,/t/dd00002,"Llorar de bebé, llorar infantil"
+21,/m/07qz6j3,Gemido
+22,/m/07qw_06,"Llorar, gemido"
+23,/m/07plz5l,Suspiro
+24,/m/015lz1,Cantando
+25,/m/0l14jd,Coro
+26,/m/01swy6,Yodeling
+27,/m/02bk07,Cantar
+28,/m/01c194,Mantra
+29,/t/dd00005,Canto de niños
+30,/t/dd00006,Canto sintético
+31,/m/06bxc,Golpecitos
+32,/m/02fxyj,Zumbador
+33,/m/07s2xch,Gemido
+34,/m/07r4k75,Gruñido
+35,/m/01w250,Silbido
+36,/m/0lyf6,Respiración
+37,/m/07mzm6,Jadear
+38,/m/01d3sd,Ronquidos
+39,/m/07s0dtb,Jadear
+40,/m/07pyy8b,Pantalón
+41,/m/07q0yl5,Bufido
+42,/m/01b_21,Tos
+43,/m/0dl9sf8,Limpieza de garganta
+44,/m/01hsr_,Estornudo
+45,/m/07ppn3j,Oler
+46,/m/06h7j,Correr
+47,/m/07qv_x_,Barajar
+48,/m/07pbtc8,"Caminar, pasos"
+49,/m/03cczk,"Masticar, masticación"
+50,/m/07pdhp0,Mordiendo
+51,/m/0939n_,Garging
+52,/m/01g90h,Retumbar el estómago
+53,/m/03q5_w,"Eructo, eructación"
+54,/m/02p3nc,Hipo
+55,/m/02_nn,Pedo
+56,/m/0k65p,Manos
+57,/m/025_jnm,Chasquido
+58,/m/0l15bq,Aplausos
+59,/m/01jg02,"Sonidos del corazón, latidos del corazón"
+60,/m/01jg1z,Soplo cardíaco
+61,/m/053hz1,Aplausos
+62,/m/028ght,Aplausos
+63,/m/07rkbfh,Charla
+64,/m/03qtwd,Multitud
+65,/m/07qfr4h,"Hubbub, ruido del habla, balbuceo del habla"
+66,/t/dd00013,Niños jugando
+67,/m/0jbk,Animal
+68,/m/068hy,"Animales domésticos, mascotas"
+69,/m/0bt9lr,Perro
+70,/m/05tny_,Ladrar
+71,/m/07r_k2n,Cesar
+72,/m/07qf0zm,Aullido
+73,/m/07rc7d9,Wowen
+74,/m/0ghcn6,Gruñido
+75,/t/dd00136,Gemido (perro)
+76,/m/01yrx,Gato
+77,/m/02yds9,Ronroneo
+78,/m/07qrkrw,maullar
+79,/m/07rjwbb,Silbido
+80,/m/07r81j2,Chillar
+81,/m/0ch8v,"Ganado, animales de granja, animales de trabajo"
+82,/m/03k3r,Caballo
+83,/m/07rv9rh,Clip-clop
+84,/m/07q5rw0,"Vecino, llorón"
+85,/m/01xq0k1,"Ganado, bovinae"
+86,/m/07rpkh9,Mugir
+87,/m/0239kh,Cencerro
+88,/m/068zj,Cerdo
+89,/t/dd00018,Gruñir
+90,/m/03fwl,Cabra
+91,/m/07q0h5t,Balido
+92,/m/07bgp,Oveja
+93,/m/025rv6n,Ave
+94,/m/09b5t,"Pollo, gallo"
+95,/m/07st89h,Cloqueo
+96,/m/07qn5dc,"Crowing, Cock-A-Doodle-Doo"
+97,/m/01rd7k,Pavo
+98,/m/07svc2k,Engullir
+99,/m/09ddx,Pato
+100,/m/07qdb04,Curandero
+101,/m/0dbvp,Ganso
+102,/m/07qwf61,Bocinazo
+103,/m/01280g,Animales salvajes
+104,/m/0cdnk,"Gatos rugientes (leones, tigres)"
+105,/m/04cvmfc,Rugido
+106,/m/015p6,Pájaro
+107,/m/020bb7,"Vocalización de pájaros, llamada de pájaros, canción de pájaros"
+108,/m/07pggtn,"Chirrido, tweet"
+109,/m/07sx8x_,Graznido
+110,/m/0h0rv,"Paloma, paloma"
+111,/m/07r_25d,Arrullo
+112,/m/04s8yn,Cuervo
+113,/m/07r5c2p,Graznar
+114,/m/09d5_,Búho
+115,/m/07r_80w,Ulular
+116,/m/05_wcq,"Vuelo de pájaros, alas aletadas"
+117,/m/01z5f,"Canidae, perros, lobos"
+118,/m/06hps,"Roedores, ratas, ratones"
+119,/m/04rmv,Ratón
+120,/m/07r4gkf,Tamborileo
+121,/m/03vt0,Insecto
+122,/m/09xqv,Grillo
+123,/m/09f96,Mosquito
+124,/m/0h2mp,"Volar, Fly House"
+125,/m/07pjwq1,Zumbido
+126,/m/01h3n,"Abeja, avispa, etc."
+127,/m/09ld4,Rana
+128,/m/07st88b,Croar
+129,/m/078jl,Serpiente
+130,/m/07qn4z3,Traqueteo
+131,/m/032n05,Vocalización de ballenas
+132,/m/04rlf,Música
+133,/m/04szw,Instrumento musical
+134,/m/0fx80y,Instrumento de cuerda arrancado
+135,/m/0342h,Guitarra
+136,/m/02sgy,Guitarra electrica
+137,/m/018vs,Bajo
+138,/m/042v_gx,Guitarra acustica
+139,/m/06w87,"Guitarra de acero, guitarra diapositiva"
+140,/m/01glhc,Tapping (técnica de guitarra)
+141,/m/07s0s5r,Rasguear
+142,/m/018j2,Banjo
+143,/m/0jtg0,Sitar
+144,/m/04rzd,Mandolina
+145,/m/01bns_,Cítara
+146,/m/07xzm,Ukelele
+147,/m/05148p4,Teclado (musical)
+148,/m/05r5c,Piano
+149,/m/01s0ps,Piano electrico
+150,/m/013y1f,Organo
+151,/m/03xq_f,Órgano electrónico
+152,/m/03gvt,Órgano de hammond
+153,/m/0l14qv,Sintetizador
+154,/m/01v1d8,Dechado
+155,/m/03q5t,Clave
+156,/m/0l14md,Percusión
+157,/m/02hnl,Kit de batería
+158,/m/0cfdd,Máquina para tambores
+159,/m/026t6,Tambor
+160,/m/06rvn,Trampa
+161,/m/03t3fj,Rimshot
+162,/m/02k_mr,Rollo de batería
+163,/m/0bm02,Tambor de bajo
+164,/m/011k_j,Tímpanos
+165,/m/01p970,Puta
+166,/m/01qbl,Platillo
+167,/m/03qtq,Hola sombrero
+168,/m/01sm1g,Bloque de madera
+169,/m/07brj,Pandereta
+170,/m/05r5wn,Ratillero (instrumento)
+171,/m/0xzly,Maraca
+172,/m/0mbct,Gong
+173,/m/016622,Campanas tubulares
+174,/m/0j45pbj,Percusión
+175,/m/0dwsp,"Marimba, xilófono"
+176,/m/0dwtp,Glockenspiel
+177,/m/0dwt5,Vibráfono
+178,/m/0l156b,Sartén de acero
+179,/m/05pd6,Orquesta
+180,/m/01kcd,Instrumento de cobre
+181,/m/0319l,cuerno francés
+182,/m/07gql,Trompeta
+183,/m/07c6l,Trombón
+184,/m/0l14_3,Instrumento de cuerda inclinada
+185,/m/02qmj0d,Sección de cadena
+186,/m/07y_7,"Violín, violín"
+187,/m/0d8_n,Pizzicato
+188,/m/01xqw,Violonchelo
+189,/m/02fsn,Contrabajo
+190,/m/085jw,"Instrumento de viento, instrumento de viento de madera"
+191,/m/0l14j_,Flauta
+192,/m/06ncr,Saxofón
+193,/m/01wy6,Clarinete
+194,/m/03m5k,Arpa
+195,/m/0395lw,Campana
+196,/m/03w41f,Campana de iglesia
+197,/m/027m70_,Cascabel
+198,/m/0gy1t2s,Campanilla de bicicleta
+199,/m/07n_g,Diapasón
+200,/m/0f8s22,Repicar
+201,/m/026fgl,Campanilla de viento
+202,/m/0150b9,Cambiar el anillo (Campanology)
+203,/m/03qjg,Harmónica
+204,/m/0mkg,Acordeón
+205,/m/0192l,Gaita
+206,/m/02bxd,Didgeridoo
+207,/m/0l14l2,Shofar
+208,/m/07kc_,Theremin
+209,/m/0l14t7,Tazón de canto
+210,/m/01hgjl,Rascado (técnica de rendimiento)
+211,/m/064t9,Música pop
+212,/m/0glt670,Música hip-hop
+213,/m/02cz_7,Beatboxing
+214,/m/06by7,La música rock
+215,/m/03lty,Metal pesado
+216,/m/05r6t,Punk rock
+217,/m/0dls3,Gruñido
+218,/m/0dl5d,Rock progresivo
+219,/m/07sbbz2,Rock and roll
+220,/m/05w3f,Rock psicodélico
+221,/m/06j6l,Ritmo y blues
+222,/m/0gywn,Música soul
+223,/m/06cqb,Reggae
+224,/m/01lyv,País
+225,/m/015y_n,Música swing
+226,/m/0gg8l,Bluegrass
+227,/m/02x8m,Canguelo
+228,/m/02w4v,Música folk
+229,/m/06j64v,Música del Medio Oriente
+230,/m/03_d0,Jazz
+231,/m/026z9,Disco
+232,/m/0ggq0m,Música clásica
+233,/m/05lls,Ópera
+234,/m/02lkt,Música electrónica
+235,/m/03mb9,música de la casa
+236,/m/07gxw,Techno
+237,/m/07s72n,Dubstep
+238,/m/0283d,Batería y bajo
+239,/m/0m0jc,Electrónica
+240,/m/08cyft,Música de baile electrónica
+241,/m/0fd3y,Musica de ambiente
+242,/m/07lnk,Música trance
+243,/m/0g293,Música de América Latina
+244,/m/0ln16,Musica salsa
+245,/m/0326g,Flamenco
+246,/m/0155w,Blues
+247,/m/05fw6t,Música para niños
+248,/m/02v2lh,Música de la nueva era
+249,/m/0y4f8,Música vocal
+250,/m/0z9c,Una capella
+251,/m/0164x2,Música de África
+252,/m/0145m,Afrobar
+253,/m/02mscn,musica cristiana
+254,/m/016cjb,Música gospel
+255,/m/028sqc,Música de Asia
+256,/m/015vgc,Música carnática
+257,/m/0dq0md,Música de Bollywood
+258,/m/06rqw,Ska
+259,/m/02p0sh1,Música tradicional
+260,/m/05rwpb,Música independiente
+261,/m/074ft,Canción
+262,/m/025td0t,Música de fondo
+263,/m/02cjck,Tema musical
+264,/m/03r5q_,Jingle (música)
+265,/m/0l14gg,Música de banda sonora
+266,/m/07pkxdp,Canción de cuna
+267,/m/01z7dr,Música de videojuego
+268,/m/0140xf,música de Navidad
+269,/m/0ggx5q,Música dance
+270,/m/04wptg,Música de boda
+271,/t/dd00031,Música feliz
+272,/t/dd00033,Música triste
+273,/t/dd00034,Música tierna
+274,/t/dd00035,Música emocionante
+275,/t/dd00036,Música enojada
+276,/t/dd00037,Música de miedo
+277,/m/03m9d0z,Viento
+278,/m/09t49,Hojas de susurro
+279,/t/dd00092,Ruido del viento (micrófono)
+280,/m/0jb2l,Tormenta
+281,/m/0ngt1,Trueno
+282,/m/0838f,Agua
+283,/m/06mb1,Lluvia
+284,/m/07r10fb,Gota de agua
+285,/t/dd00038,Lluvia en la superficie
+286,/m/0j6m2,Arroyo
+287,/m/0j2kx,Cascada
+288,/m/05kq4,Océano
+289,/m/034srq,"Olas, surf"
+290,/m/06wzb,Vapor
+291,/m/07swgks,Gluglú
+292,/m/02_41,Fuego
+293,/m/07pzfmf,Crepitar
+294,/m/07yv9,Vehículo
+295,/m/019jd,"Bote, vehículo de agua"
+296,/m/0hsrw,"Velero, barco de vela"
+297,/m/056ks2,"Bote de remos, canoa, kayak"
+298,/m/02rlv9,"Lancha de motor, lancha rápida"
+299,/m/06q74,Barco
+300,/m/012f08,Vehículo motorizado (carretera)
+301,/m/0k4j,Auto
+302,/m/0912c9,"Borna del vehículo, bocina del automóvil, bocina"
+303,/m/07qv_d5,Sonar
+304,/m/02mfyn,Alarma de carro
+305,/m/04gxbd,"Ventanas eléctricas, ventanas eléctricas"
+306,/m/07rknqz,Patinando
+307,/m/0h9mv,Chillido de neumáticos
+308,/t/dd00134,Coche que pasa
+309,/m/0ltv,"Carrero de carreras, carreras de automóviles"
+310,/m/07r04,Camión
+311,/m/0gvgw0,Freno de aire
+312,/m/05x_td,"Air Born, Camion Horn"
+313,/m/02rhddq,Revertir los pitidos
+314,/m/03cl9h,"Camión de helado, furgoneta de helados"
+315,/m/01bjv,Autobús
+316,/m/03j1ly,Vehículo de emergencia
+317,/m/04qvtq,Coche de policía (sirena)
+318,/m/012n7d,Ambulancia (sirena)
+319,/m/012ndj,"Camión de bomberos, camión de bomberos (sirena)"
+320,/m/04_sv,Motocicleta
+321,/m/0btp2,"Ruido de tráfico, ruido de la carretera"
+322,/m/06d_3,Transporte ferroviario
+323,/m/07jdr,Tren
+324,/m/04zmvq,Entrenar
+325,/m/0284vy3,Trenes
+326,/m/01g50p,"Coche de ferrocarril, vagón de tren"
+327,/t/dd00048,Vuelas de tren chillando
+328,/m/0195fx,"Metro, metro, subterráneo"
+329,/m/0k5j,Aeronave
+330,/m/014yck,Motor de aviones
+331,/m/04229,Motor a reacción
+332,/m/02l6bg,"Hélice, tornillo de aire"
+333,/m/09ct_,Helicóptero
+334,/m/0cmf2,"Avión de ala fija, avión"
+335,/m/0199g,Bicicleta
+336,/m/06_fw,Patineta
+337,/m/02mk9,Motor
+338,/t/dd00065,Motor ligero (alta frecuencia)
+339,/m/08j51y,"Taladro dental, taladro del dentista"
+340,/m/01yg9g,Cortacésped
+341,/m/01j4z9,Motosiería
+342,/t/dd00066,Motor medio (frecuencia media)
+343,/t/dd00067,Motor pesado (baja frecuencia)
+344,/m/01h82_,Golpe de motor
+345,/t/dd00130,Arranque del motor
+346,/m/07pb8fc,De marcha en vacío
+347,/m/07q2z82,"Acelerar, acelerar, Vroom"
+348,/m/02dgv,Puerta
+349,/m/03wwcy,Timbre de la puerta
+350,/m/07r67yg,Ding-dong
+351,/m/02y_763,Puerta corrediza
+352,/m/07rjzl8,Golpe
+353,/m/07r4wb8,Golpear
+354,/m/07qcpgn,Grifo
+355,/m/07q6cd_,Chirrido
+356,/m/0642b4,Armario abierto o cierre
+357,/m/0fqfqc,Cajón abierto o cierre
+358,/m/04brg2,"Platos, ollas y sartenes"
+359,/m/023pjk,"Cubiertos, cubiertos"
+360,/m/07pn_8q,Picar (comida)
+361,/m/0dxrf,Freír (comida)
+362,/m/0fx9l,Horno microondas
+363,/m/02pjr4,Licuadora
+364,/m/02jz0l,"Grifo de agua, grifo"
+365,/m/0130jx,Fregadero (relleno o lavado)
+366,/m/03dnzn,Bañera (relleno o lavado)
+367,/m/03wvsk,Secador de pelo
+368,/m/01jt3m,Botar el agua del baño
+369,/m/012xff,Cepillo de dientes
+370,/m/04fgwm,Cepillo de dientes eléctrico
+371,/m/0d31p,aspiradora
+372,/m/01s0vc,Cremallera (ropa)
+373,/m/03v3yw,Llaves jangling
+374,/m/0242l,Moneda (caída)
+375,/m/01lsmm,Tijeras
+376,/m/02g901,"Rasurla eléctrica, maquinilla de afeitar eléctrica"
+377,/m/05rj2,Tarjetas barajadas
+378,/m/0316dw,Mecanografía
+379,/m/0c2wf,Máquina de escribir
+380,/m/01m2v,Teclado
+381,/m/081rb,Escribiendo
+382,/m/07pp_mv,Alarma
+383,/m/07cx4,Teléfono
+384,/m/07pp8cl,Timbre del teléfono sonando
+385,/m/01hnzm,Tono de llamada
+386,/m/02c8p,"Marcado telefónico, DTMF"
+387,/m/015jpf,Tono de marcación
+388,/m/01z47d,Señal de ocupado
+389,/m/046dlr,Despertador
+390,/m/03kmc9,Sirena
+391,/m/0dgbq,Sirena de defensa civil
+392,/m/030rvx,Zumbador
+393,/m/01y3hg,"Detector de humo, alarma de humo"
+394,/m/0c3f7m,Alarma de incendios
+395,/m/04fq5q,Sirena
+396,/m/0l156k,Silbar
+397,/m/06hck5,Silbato de vapor
+398,/t/dd00077,Mecanismos
+399,/m/02bm9n,"Trinquete, trineo"
+400,/m/01x3z,Reloj
+401,/m/07qjznt,Garrapata
+402,/m/07qjznl,TIC Tac
+403,/m/0l7xg,Engranaje
+404,/m/05zc1,Poleas
+405,/m/0llzx,Máquina de coser
+406,/m/02x984l,Ventilador mecánico
+407,/m/025wky1,Aire acondicionado
+408,/m/024dl,Caja registradora
+409,/m/01m4t,Impresora
+410,/m/0dv5r,Cámara
+411,/m/07bjf,Cámara refleja de una sola lente
+412,/m/07k1x,Herramientas
+413,/m/03l9g,Martillo
+414,/m/03p19w,Martillo neumático
+415,/m/01b82r,Aserradura
+416,/m/02p01q,Presentación (rasp)
+417,/m/023vsd,Lijado
+418,/m/0_ksk,Herramienta eléctrica
+419,/m/01d380,Perforar
+420,/m/014zdl,Explosión
+421,/m/032s66,Disparo de disparos
+422,/m/04zjc,Ametralladora
+423,/m/02z32qm,Descarga cerrada
+424,/m/0_1c,Fuego de artillería
+425,/m/073cg4,Pistola de tapa
+426,/m/0g6b5,Fuegos artificiales
+427,/g/122z_qxw,Petardo
+428,/m/07qsvvw,"Estallar, pop"
+429,/m/07pxg6y,Erupción
+430,/m/07qqyl4,Auge
+431,/m/083vt,Madera
+432,/m/07pczhz,Cortar
+433,/m/07pl1bw,Astilla
+434,/m/07qs1cx,Grieta
+435,/m/039jq,Vaso
+436,/m/07q7njn,"Grilla, tintineo"
+437,/m/07rn7sz,Romper
+438,/m/04k94,Líquido
+439,/m/07rrlb6,"Salpicaduras, salpicaduras"
+440,/m/07p6mqd,Chapotear
+441,/m/07qlwh6,Chapotear
+442,/m/07r5v4s,Goteo
+443,/m/07prgkl,Verter
+444,/m/07pqc89,"Gotear, dribble"
+445,/t/dd00088,Chorro
+446,/m/07p7b8y,Llenar (con líquido)
+447,/m/07qlf79,Rociar
+448,/m/07ptzwd,Bomba (líquido)
+449,/m/07ptfmf,Remover
+450,/m/0dv3j,Hirviendo
+451,/m/0790c,Sonar
+452,/m/0dl83,Flecha
+453,/m/07rqsjt,"Whoosh, Swoosh, Swish"
+454,/m/07qnq_y,"Golpear, golpear"
+455,/m/07rrh0c,Thunk
+456,/m/0b_fwt,Sintonizador electrónico
+457,/m/02rr_,Unidad de efectos
+458,/m/07m2kt,Efecto de coro
+459,/m/018w8,Rebote de baloncesto
+460,/m/07pws3f,Estallido
+461,/m/07ryjzk,"Bofetada, justo"
+462,/m/07rdhzs,"Whack, Thwack"
+463,/m/07pjjrj,"Smash, Crash"
+464,/m/07pc8lb,Rotura
+465,/m/07pqn27,Rebote
+466,/m/07rbp7_,Látigo
+467,/m/07pyf11,Solapa
+468,/m/07qb_dv,Rascar
+469,/m/07qv4k0,Raspar
+470,/m/07pdjhy,Frotar
+471,/m/07s8j8t,Rollo
+472,/m/07plct2,Aplastante
+473,/t/dd00112,"Arrugado, arrugado"
+474,/m/07qcx4z,Desgarro
+475,/m/02fs_r,"Beep, Bleep"
+476,/m/07qwdck,Silbido
+477,/m/07phxs1,Timbre
+478,/m/07rv4dm,Sonido metálico
+479,/m/07s02z0,Chillido
+480,/m/07qh7jl,Crujir
+481,/m/07qwyj0,Crujido
+482,/m/07s34ls,Zumbido
+483,/m/07qmpdm,Estrépito
+484,/m/07p9k1k,Chisporrotear
+485,/m/07qc9xj,Clic
+486,/m/07rwm0c,Clama de Clickety
+487,/m/07phhsh,Retumbar
+488,/m/07qyrcz,Plaf
+489,/m/07qfgpx,"Jingle, tinkle"
+490,/m/07rcgpl,Tararear
+491,/m/07p78v5,Gusto
+492,/t/dd00121,Boing
+493,/m/07s12q4,Crujido
+494,/m/028v0c,Silencio
+495,/m/01v_m0,Onda sinusoidal
+496,/m/0b9m1,Armónico
+497,/m/0hdsk,Tono de chirrido
+498,/m/0c1dj,Efecto de sonido
+499,/m/07pt_g0,Legumbres
+500,/t/dd00125,"Dentro, habitación pequeña"
+501,/t/dd00126,"Adentro, habitación o sala grande"
+502,/t/dd00127,"Dentro, espacio público"
+503,/t/dd00128,"Afuera, urbano o hecha por el hombre"
+504,/t/dd00129,"Afuera, rural o natural"
+505,/m/01b9nn,Reverberación
+506,/m/01jnbd,Eco
+507,/m/096m7z,Ruido
+508,/m/06_y0by,Ruido ambiental
+509,/m/07rgkc5,Estático
+510,/m/06xkwv,Mains Hum
+511,/m/0g12c5,Distorsión
+512,/m/08p9q4,Tono lateral
+513,/m/07szfh9,Cacofonía
+514,/m/0chx_,ruido blanco
+515,/m/0cj0r,Ruido rosa
+516,/m/07p_0gm,Palpitante
+517,/m/01jwx6,Vibración
+518,/m/07c52,Televisión
+519,/m/06bz3,Radio
+520,/m/07hvw1,Grabación de campo
