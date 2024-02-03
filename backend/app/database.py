@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 # DATABASE_URL = "sqlite:///backend/app/database/soundofsilence.db?check_same_thread=False" 
-DATABASE_URL = "sqlite:///D:/BOOTCAMPF5/SoundOfSilence/backend/app/database/soundofsilence.db?check_same_thread=False"
+DATABASE_URL = "sqlite:///C:/Users/SARA/Documents/FEM_CODERS/SoundofSilence_Back/backend/app/database/soundofsilence.db?check_same_thread=False"
  #cadena de conexión
 
 engine = create_engine(DATABASE_URL) # conexión a la bbdd
